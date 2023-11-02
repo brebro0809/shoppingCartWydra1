@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18F3BF612AF296B1004FECE9 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F3BF602AF296B1004FECE9 /* MyCell.swift */; };
 		18F7F44C2AF146A700E728D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7F44B2AF146A700E728D5 /* AppDelegate.swift */; };
 		18F7F44E2AF146A700E728D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7F44D2AF146A700E728D5 /* SceneDelegate.swift */; };
 		18F7F4502AF146A700E728D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7F44F2AF146A700E728D5 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18F3BF602AF296B1004FECE9 /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		18F7F4482AF146A700E728D5 /* shoppingCartWydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shoppingCartWydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F7F44B2AF146A700E728D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18F7F44D2AF146A700E728D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				18F7F44D2AF146A700E728D5 /* SceneDelegate.swift */,
 				18F7F44F2AF146A700E728D5 /* ViewController.swift */,
 				18F7F4512AF146A700E728D5 /* Main.storyboard */,
+				18F3BF602AF296B1004FECE9 /* MyCell.swift */,
 				18F7F4572AF146A800E728D5 /* Assets.xcassets */,
 				18F7F4592AF146A800E728D5 /* LaunchScreen.storyboard */,
 				18F7F45C2AF146A800E728D5 /* Info.plist */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F7F4502AF146A700E728D5 /* ViewController.swift in Sources */,
+				18F3BF612AF296B1004FECE9 /* MyCell.swift in Sources */,
 				18F7F44C2AF146A700E728D5 /* AppDelegate.swift in Sources */,
 				18F7F44E2AF146A700E728D5 /* SceneDelegate.swift in Sources */,
 				18F7F4562AF146A700E728D5 /* shoppingCartWydra.xcdatamodeld in Sources */,
