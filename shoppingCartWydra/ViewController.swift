@@ -53,6 +53,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if let encoded = try? encoder.encode(items){
                 defaults.set(encoded, forKey: "items")
             }
+            itemInput.text = ""
+            categoryInput.text = ""
             tableView.reloadData()
         }
     }
@@ -71,23 +73,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     
-    @IBAction func editPress(_ sender: UIButton) {
-        if let safeIndex = currentIndex {
-            let cell = tableView.cellForRow(at: safeIndex) as! MyCell
-            itemInput.text = cell.nameLabel.text
-            categoryInput.text = cell.categoryLabel.text
-            items.remove(at: safeIndex.row)
-            let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode(items){
-                defaults.set(encoded, forKey: "items")
-            }
-            tableView.deleteRows(at: [safeIndex], with: .automatic)
-            
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        currentIndex = indexPath
+        items[indexPath.row].isChecked = !items[indexPath.row].isChecked
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(items){
+            defaults.set(encoded, forKey: "items")
+        }
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,7 +108,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         })
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction(style: .normal, title: "Edit", handler: {_,_,_ in
+            let cell = tableView.cellForRow(at: indexPath) as! MyCell
+            self.itemInput.text = cell.nameLabel.text
+            self.categoryInput.text = cell.categoryLabel.text
+            self.items.remove(at: indexPath.row)
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(self.items){
+                self.defaults.set(encoded, forKey: "items")
+            }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        })
+        editAction.backgroundColor = UIColor.systemOrange
+        
+        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
     }
 }
 
